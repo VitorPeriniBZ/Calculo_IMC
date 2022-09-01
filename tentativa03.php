@@ -31,7 +31,9 @@
         $altura = isset($_GET["altura"])? $_GET["altura"]:null;        
 
 
-
+        $input = array("Beba agua", "Melhor uma pedra no caminho do que Duas nos rins, BEBA AGUA", "Coma frutas e legumes", "Beba agua", "BORA PRA ACAD");
+        $rand_keys = array_rand($input, 2);
+   
         
 		// imc = peso / altura²);
         function imc($p, $a){
@@ -63,21 +65,16 @@
         40.0 => "na hora de procurar um Cardiologista",
         49.0 => "na hora de procurar um Cardiologista"
     ];
-     
-
-
 
         foreach($valores as $chave => $value){
             if(imc($peso, $altura) <= $chave){
               
                 
-                echo " Seu IMC é: ",resultado($resultado), "<br></br> $nome"," está ",$value;
+                echo " Seu IMC é: ",resultado($resultado), "<br></br> $nome"," está ",$value, "<br></br>",$input[$rand_keys[1]] . "\n";;
                 break;
             }
         }
-
        
-
         function random_color($start = 0x000000, $end = 0xFFFFFF) {
             return sprintf('#%06x', mt_rand($start, $end));
          }
