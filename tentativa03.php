@@ -1,9 +1,12 @@
 
-<?php   error_reporting(E_ALL);
-ini_set("display_errors",1 );?>
+        <?php 
+        error_reporting(E_ALL);
+        ini_set("display_errors",1 );
+        ?>
+
         <form method="get" action="tentativa03.php" class="form">
         	
-    
+   
                 Nome:
                 <input type="text" name="nome"/>
                 <br></br>
@@ -20,28 +23,32 @@ ini_set("display_errors",1 );?>
                 
                 <input type="submit" name="envia" value="CALCULAR IMC" style="color: <?= random_color()?>;">
                 <br></br>
+                </form>
+                
+        <?php   
+        $nome = isset($_GET["nome"])? $_GET["nome"]:null;
+		$peso = isset($_GET["peso"])? $_GET["peso"]:null;
+        $altura = isset($_GET["altura"])? $_GET["altura"]:null;        
 
-        <?php 
-
-        $nome = $_GET['nome'];
-		$peso = $_GET['peso'];
-		$altura = $_GET['altura'];
 
 
         
 		// imc = peso / altura²);
-        function imc($p, $a){   
-            $imc = $p / ($a ** 2);
+        function imc($p, $a){
+            error_reporting(E_ERROR | E_PARSE);
+
+            if($imc = $p / ($a ** 2))        
             return $imc;
         }
          imc($peso, $altura);
         
         ?>
-        </form>
+        
         <?php
 		$resultado = number_format(imc($peso, $altura));
 		
         function resultado($resultado){
+            
             if(isset($resultado) && $resultado != '0'){}
             return $resultado;
         };
@@ -58,10 +65,13 @@ ini_set("display_errors",1 );?>
     ];
      
 
+
+
         foreach($valores as $chave => $value){
             if(imc($peso, $altura) <= $chave){
               
-                echo " Seu IMC é: ", resultado($resultado), "<br></br> $nome"," está ",$value;
+                
+                echo " Seu IMC é: ",resultado($resultado), "<br></br> $nome"," está ",$value;
                 break;
             }
         }
