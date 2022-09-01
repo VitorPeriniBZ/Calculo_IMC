@@ -26,7 +26,6 @@ ini_set("display_errors",1 );?>
         $nome = $_GET['nome'];
 		$peso = $_GET['peso'];
 		$altura = $_GET['altura'];
-        $novo=str_replace(array(",","."),array(".",","),$valor);
 
 
         
@@ -42,9 +41,10 @@ ini_set("display_errors",1 );?>
         <?php
 		$resultado = number_format(imc($peso, $altura));
 		
-		if(isset($resultado) && $resultado != '0'){;	
-			
-		}
+        function resultado($resultado){
+            if(isset($resultado) && $resultado != '0'){}
+            return $resultado;
+        };
 
 
         $valores = [
@@ -53,14 +53,17 @@ ini_set("display_errors",1 );?>
         29.9 => "Um pouco a cima do peso, mas ta suave",
         34.9 => "Fordo",
         39.9 => "acima do peso",
-        40.0 => "Procura um Cardiologista ai namoral"];
+        40.0 => "na hora de procurar um Cardiologista",
+        49.0 => "na hora de procurar um Cardiologista"
+    ];
+     
 
         foreach($valores as $chave => $value){
             if(imc($peso, $altura) <= $chave){
               
-                echo " seu IMC é ", $resultado, "<br></br> $nome"," está ",$value;
+                echo " Seu IMC é: ", resultado($resultado), "<br></br> $nome"," está ",$value;
                 break;
-            }   
+            }
         }
 
        
