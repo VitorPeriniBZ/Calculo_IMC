@@ -1,0 +1,7 @@
+O usuario vai colocar 
+Seu Nome
+Seu Peso
+e Sua Altura
+
+ao clicar o botao "Calcular" ele ira gerar uma cor *aleatoria* e mostrar seu Índice de Massa Corporal (IMC)
+e o nivel de CLASSIFICAÇÃO do grau de obesidade.
