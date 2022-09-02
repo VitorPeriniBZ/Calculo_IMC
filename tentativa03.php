@@ -10,13 +10,11 @@
                 Nome:
                 <input type="text" name="nome"/>
                 <br></br>
-            
                 
                 Seu Peso: 
                 <input type="text" name="peso" required/>
                 <br></br>
-                    
-
+            
                 Sua Altura (Use Pontuação: 1.99 Em METROS):
                 <input type="text" name="altura" required/>
                 <br></br>
@@ -31,7 +29,12 @@
         $altura = isset($_GET["altura"])? $_GET["altura"]:null;        
 
 
-        $input = array("Beba agua", "Melhor uma pedra no caminho do que Duas nos rins, BEBA AGUA", "Coma frutas e legumes", "Beba agua", "BORA PRA ACAD");
+        $input = array("Beba agua",
+                        "Coma frutas e legumes",
+                        "Beba agua", 
+                        "BORA PRA CADIMIA", 
+                        "Melhor uma pedra no caminho do que Duas nos rins, BEBA AGUA",
+                        "Melhor uma pedra no caminho do que Duas nos rins, BEBA AGUA",);
         $rand_keys = array_rand($input, 2);
    
         
